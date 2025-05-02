@@ -12,6 +12,8 @@ import qgisImage from './assets/qgis.png';
 import arcgisImage from './assets/arcgis0.jpeg';
 import deploymentImage from './assets/deployment.jpeg';
 import versionControlImage from './assets/versioncontrol.png';
+import databaseImage from './assets/database.jpeg';
+import automationImage from './assets/automation.jpeg';
 
 import foodcourtImage from './assets/foodcourt.jpeg';
 import desirelinkImage from './assets/desirelink.gif';
@@ -27,21 +29,35 @@ import contactImage from './assets/contact.jpeg';
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
+  const skills = [
+    { name: 'React', image: reactImage },
+    { name: 'Flask', image: flaskImage },
+    { name: 'Node.js', image: nodeImage },
+    { name: 'Linux', image: linuxImage },
+    { name: 'Databases', image: databaseImage },
+    { name: 'Automation', image: automationImage },
+    { name: 'Deployment', image: deploymentImage },
+    { name: 'Version Control', image: versionControlImage },
+    { name: 'Power BI', image: powerBIImage },
+    { name: 'Tableau', image: tableauImage },
+    { name: 'QGIS', image: qgisImage },
+    { name: 'ArcGIS', image: arcgisImage },
+  ];
+
+  const projects = [
+    { name: 'Dashboard', image: dashboardImage, link: 'https://public.tableau.com/app/profile/eric.mutuma/viz/GlobalTBdataAnalysis/GlobalTBprevalenceanalysis?publish=yes' },
+    { name: 'Desire Link', image: desirelinkImage, link: 'https://desirelink.vercel.app' },
+    { name: 'Elite', image: eliteImage, link: 'https://elitemovies15.netlify.app' },
+    { name: 'Food Court', image: foodcourtImage, link: 'https://food-court-g4.onrender.com' },
+    { name: 'Joscar', image: joscarImage, link: 'https://joscargrill.netlify.app' },
+    { name: 'MTN', image: mtnImage, link: 'https://github.com/ericmutuma15/MTN-Cote-D-Ivore-data-analysis/blob/main/Moringa_Data_Science_Prep_Python_Mini_Project_2012_07_Eric_Mutuma_DataReport_.ipynb' },
+    { name: 'Orion', image: orionImage, link: 'https://orion-geosurveys.vercel.app/' },
+    { name: 'Shadow Tech', image: shadowtechImage, link: 'https://shadowtech.netlify.app' },
+  ];
+
   return (
     <div className={darkMode ? 'dark' : ''} style={{ margin: 0, padding: 0 }}>
       <div className="font-sans bg-gray-100 dark:bg-gray-900 dark:text-white min-h-screen">
-        {/* Toggle Button */}
-        <div className="p-4 text-right">
-          <label className="switch">
-            <input
-              type="checkbox"
-              checked={darkMode}
-              onChange={() => setDarkMode(!darkMode)}
-            />
-            <span className="slider"></span>
-          </label>
-        </div>
-
         {/* Home Section */}
         <section className="bg-gray-900 text-white py-20 text-center relative">
           <h1 className="text-4xl font-bold">Hi! I'm a Full-Stack Developer</h1>
@@ -90,7 +106,7 @@ function App() {
         <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
 
         {/* About Section */}
-        <section className="py-20 px-10 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 transition-opacity duration-700" id="about">
+        <section className="py-20 px-10 bg-gray-900 text-white transition-opacity duration-700" id="about">
           <h2 className="text-3xl font-bold mb-4">About Me</h2>
           <div className="flex flex-col md:flex-row items-center gap-6">
             <img
@@ -109,19 +125,8 @@ function App() {
         {/* Skills Section */}
         <section className="py-20 px-10 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700" id="skills">
           <h2 className="text-3xl font-bold mb-4">Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-            {[
-              { name: 'React', image: reactImage },
-              { name: 'Flask', image: flaskImage },
-              { name: 'Node.js', image: nodeImage },
-              { name: 'Linux', image: linuxImage },
-              { name: 'Deployment', image: deploymentImage },
-              { name: 'Version Control', image: versionControlImage },
-              { name: 'Power BI', image: powerBIImage },
-              { name: 'Tableau', image: tableauImage },
-              { name: 'QGIS', image: qgisImage },
-              { name: 'ArcGIS', image: arcgisImage },
-            ].map((skill) => (
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {skills.map((skill) => (
               <div key={skill.name} className="text-center">
                 <img
                   src={skill.image}
@@ -137,27 +142,18 @@ function App() {
         <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
 
         {/* Projects Section */}
-        <section className="py-20 px-10 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 transition-opacity duration-700" id="projects">
+        <section className="py-20 px-10 bg-gray-900 text-white transition-opacity duration-700" id="projects">
           <h2 className="text-3xl font-bold mb-4">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {[
-              { name: 'Dashboard', image: dashboardImage, link: 'https://public.tableau.com/app/profile/eric.mutuma/viz/GlobalTBdataAnalysis/GlobalTBprevalenceanalysis?publish=yes' },
-              { name: 'Desire Link', image: desirelinkImage, link: 'https://desirelink.vercel.app' },
-              { name: 'Elite', image: eliteImage, link: 'https://elitemovies15.netlify.app' },
-              { name: 'Food Court', image: foodcourtImage, link: 'https://food-court-g4.onrender.com' },
-              { name: 'Joscar', image: joscarImage, link: 'https://joscargrill.netlify.app' },
-              { name: 'MTN', image: mtnImage, link: 'https://github.com/ericmutuma15/MTN-Cote-D-Ivore-data-analysis/blob/main/Moringa_Data_Science_Prep_Python_Mini_Project_2012_07_Eric_Mutuma_DataReport_.ipynb' },
-              { name: 'Orion', image: orionImage, link: 'https://orion-geosurveys.vercel.app/' },
-              { name: 'Shadow Tech', image: shadowtechImage, link: 'https://shadowtech.netlify.app' },
-            ].map((project) => (
-              <div key={project.name} className="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+            {projects.map((project) => (
+              <div key={project.name} className="p-6 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
                 <img
                   src={project.image}
                   alt={project.name}
                   className="w-full h-60 object-cover rounded-md mb-4"
                 />
-                <h3 className="font-bold text-xl text-center">{project.name}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 text-center">Description of {project.name}.</p>
+                <h3 className="font-bold text-xl text-center text-white">{project.name}</h3>
+                <p className="text-sm text-gray-400 text-center">Description of {project.name}.</p>
                 <div className="text-center mt-4">
                   <a
                     href={project.link}

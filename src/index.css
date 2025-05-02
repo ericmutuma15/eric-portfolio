@@ -56,24 +56,6 @@ section {
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr; /* Single column for small screens */
-  gap: 1rem;
-}
-
-@media (min-width: 640px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr); /* Three columns for large screens */
-  }
-}
-
 img {
   max-width: 100%;
   height: auto; /* Maintain aspect ratio */
