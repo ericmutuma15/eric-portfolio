@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaSun, FaMoon } from 'react-icons/fa';
+import { FaSun, FaMoon, FaShieldAlt } from 'react-icons/fa';
 import './App.css';
 import './index.css';
 
@@ -36,7 +36,7 @@ import rhymeTrainingImage from './assets/rhymelogo.png';
 import tailwindImage from './assets/tail.png';
 import fastapiImage from './assets/fast.png';
 import expressImage from './assets/exp.png';
-import networkingImage from './assets/net.jpg';
+import ciscoImage from './assets/net.jpg';
 
 // Personal/contact images
 import meImage from './assets/me.jpg';
@@ -44,13 +44,18 @@ import contactImage from './assets/contact.jpeg';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [skillsScrollLeft, setSkillsScrollLeft] = useState(false);
+  const [skillsScrollRight, setSkillsScrollRight] = useState(true);
+  const [projectsScrollLeft, setProjectsScrollLeft] = useState(false);
+  const [projectsScrollRight, setProjectsScrollRight] = useState(true);
 
   // Newest skills first
   const skills = [
     { name: 'Tailwind CSS', image: tailwindImage },
     { name: 'FastAPI', image: fastapiImage },
     { name: 'Express.js', image: expressImage },
-    { name: 'Networking Systems', image: networkingImage },
+    { name: 'Cisco Networking', image: ciscoImage },
+    { name: 'Penetration Testing', icon: 'shield', bgColor: 'from-red-500 to-orange-500' },
 
     { name: 'React', image: reactImage },
     { name: 'Flask', image: flaskImage },
@@ -144,15 +149,15 @@ function App() {
 
         {/* About Section */}
         <section className="py-20 px-10 bg-gray-900 text-white transition-opacity duration-700" id="about">
-          <h2 className="text-3xl font-bold mb-4">About Me</h2>
-          <div className="flex flex-col md:flex-row items-center gap-6">
+          <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">About Me</h2>
+          <div className="flex flex-col md:flex-row items-center gap-8 max-w-6xl mx-auto">
             <img
               src={meImage}
               alt="About Me"
-              className="w-48 h-48 rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+              className="w-48 h-48 rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 flex-shrink-0 ring-4 ring-blue-500 ring-opacity-50"
             />
-            <p>
-              I'm a full-stack developer, data analyst, and Linux enthusiast. I work with React (Vite/ Next) + Flask/ FastAPI or Node.js to build smooth, full-stack web apps. I'm also experienced in Linux system setup and programming, handling everything from Wi-Fi and Ethernet configuration to terminal-based troubleshooting.
+            <p className="text-lg leading-relaxed text-gray-200">
+              I'm a full-stack developer, data analyst, cybersecurity enthusiast, and Linux expert. I specialize in React (Vite/Next) + Flask/FastAPI or Node.js to build smooth, scalable web applications. My expertise includes <span className="text-blue-400 font-semibold">Cisco Networking</span> and <span className="text-blue-400 font-semibold">Cybersecurity with Penetration Testing</span>, complemented by deep knowledge in Linux system setup, network configuration, and security troubleshooting. I'm passionate about building secure, efficient, and user-centric solutions.
             </p>
           </div>
         </section>
@@ -160,49 +165,153 @@ function App() {
         <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
 
         {/* Skills Section */}
-        <section className="py-20 px-10 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700" id="skills">
-          <h2 className="text-3xl font-bold mb-4">Skills</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {skills.map(skill => (
-              <div key={skill.name} className="text-center">
-                <img
-                  src={skill.image}
-                  alt={skill.name}
-                  className="mx-auto mb-4 w-32 h-32 object-cover rounded-full shadow-lg hover:scale-110 transition-transform duration-300"
-                />
-                <p className="font-bold text-lg">{skill.name}</p>
+        <section className="py-20 px-4 sm:px-10 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700" id="skills">
+          <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Skills</h2>
+          <div className="max-w-7xl mx-auto">
+            <div className="relative group">
+              <div 
+                className="overflow-x-auto scrollbar-hide scroll-smooth"
+                onScroll={(e) => {
+                  const scrollLeft = e.target.scrollLeft > 0;
+                  const scrollRight = e.target.scrollLeft < (e.target.scrollWidth - e.target.clientWidth - 10);
+                  setSkillsScrollLeft(scrollLeft);
+                  setSkillsScrollRight(scrollRight);
+                }}
+              >
+                <div className="flex gap-6 pb-4 px-4 min-w-max">
+                  {skills.map(skill => (
+                    <div key={skill.name} className="flex-shrink-0 text-center group/skill">
+                      {skill.image ? (
+                        <div className="relative mb-4">
+                          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur opacity-0 group-hover/skill:opacity-75 transition-opacity duration-300"></div>
+                          <img
+                            src={skill.image}
+                            alt={skill.name}
+                            className="relative mx-auto w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 object-cover rounded-full shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700"
+                          />
+                        </div>
+                      ) : (
+                        <div className={`relative mb-4 mx-auto w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full bg-gradient-to-br ${skill.bgColor} shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700 flex items-center justify-center`}>
+                          <FaShieldAlt className="text-white text-6xl sm:text-7xl" />
+                        </div>
+                      )}
+                      <p className="font-bold text-base sm:text-lg md:text-xl text-gray-900 dark:text-white group-hover/skill:text-blue-500 transition-colors duration-300 mt-2">{skill.name}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+              
+              {/* Scroll indicators */}
+              {skillsScrollLeft && (
+                <button
+                  onClick={() => {
+                    const carousel = document.querySelector('#skills .overflow-x-auto');
+                    if (carousel) carousel.scrollBy({ left: -300, behavior: 'smooth' });
+                  }}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300"
+                  aria-label="Scroll left"
+                >
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+              )}
+              
+              {skillsScrollRight && (
+                <button
+                  onClick={() => {
+                    const carousel = document.querySelector('#skills .overflow-x-auto');
+                    if (carousel) carousel.scrollBy({ left: 300, behavior: 'smooth' });
+                  }}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300"
+                  aria-label="Scroll right"
+                >
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              )}
+            </div>
           </div>
         </section>
 
         <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
 
         {/* Projects Section */}
-        <section className="py-20 px-10 bg-gray-900 text-white transition-opacity duration-700" id="projects">
-          <h2 className="text-3xl font-bold mb-4">Projects</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
-            {projects.map(project => (
-              <div key={project.name} className="p-6 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-60 object-cover rounded-md mb-4"
-                />
-                <h3 className="font-bold text-xl text-center">{project.name}</h3>
-                <p className="text-sm text-gray-400 text-center">{project.name} website.</p>
-                <div className="text-center mt-4">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-                  >
-                    Visit Site
-                  </a>
+        <section className="py-20 px-4 sm:px-10 bg-gray-900 text-white transition-opacity duration-700" id="projects">
+          <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Projects</h2>
+          <div className="max-w-7xl mx-auto">
+            <div className="relative group">
+              <div 
+                className="overflow-x-auto scrollbar-hide scroll-smooth"
+                onScroll={(e) => {
+                  const scrollLeft = e.target.scrollLeft > 0;
+                  const scrollRight = e.target.scrollLeft < (e.target.scrollWidth - e.target.clientWidth - 10);
+                  setProjectsScrollLeft(scrollLeft);
+                  setProjectsScrollRight(scrollRight);
+                }}
+              >
+                <div className="flex gap-6 pb-4 px-4 min-w-max">
+                  {projects.map(project => (
+                    <div key={project.name} className="flex-shrink-0 w-80 sm:w-96 group/project relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-105">
+                      <div className="relative h-56 sm:h-64 overflow-hidden">
+                        <img
+                          src={project.image}
+                          alt={project.name}
+                          className="w-full h-full object-cover group-hover/project:scale-110 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-black opacity-0 group-hover/project:opacity-20 transition-opacity duration-300"></div>
+                      </div>
+                      <div className="p-5 sm:p-6">
+                        <h3 className="font-bold text-lg sm:text-xl mb-2 group-hover/project:text-blue-400 transition-colors duration-300 line-clamp-1">{project.name}</h3>
+                        <p className="text-sm text-gray-400 mb-4 line-clamp-2">{project.name} website.</p>
+                        <div className="text-center">
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-5 sm:px-6 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 font-semibold text-sm sm:text-base"
+                          >
+                            Visit Site
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
+
+              {/* Scroll indicators */}
+              {projectsScrollLeft && (
+                <button
+                  onClick={() => {
+                    const carousel = document.querySelector('#projects .overflow-x-auto');
+                    if (carousel) carousel.scrollBy({ left: -400, behavior: 'smooth' });
+                  }}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300"
+                  aria-label="Scroll left"
+                >
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+              )}
+              
+              {projectsScrollRight && (
+                <button
+                  onClick={() => {
+                    const carousel = document.querySelector('#projects .overflow-x-auto');
+                    if (carousel) carousel.scrollBy({ left: 400, behavior: 'smooth' });
+                  }}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300"
+                  aria-label="Scroll right"
+                >
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              )}
+            </div>
           </div>
         </section>
 
@@ -210,33 +319,37 @@ function App() {
 
         {/* Contact Section */}
         <section className="py-20 px-10 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700" id="contact">
-          <h2 className="text-3xl font-bold mb-4">Contact</h2>
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <img
-              src={contactImage}
-              alt="Contact"
-              className="w-48 h-48 rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
-            />
-            <div>
-              <p>Office Lines: 0100-285-721 / 0716-877 234</p>
-              <p>Mobile: 0798-244 545</p>
-              <p>Email: ericmutuma15@gmail.com</p>
-            </div>
-            <div className="flex gap-4 mt-4">
-              <a
-                href="mailto:ericmutuma15@gmail.com"
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-              >
-                Mail Me
-              </a>
-              <a
-                href="https://wa.me/254716877234"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
-              >
-                WhatsApp
-              </a>
+          <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Contact</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-8 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 p-8 rounded-xl shadow-xl">
+              <img
+                src={contactImage}
+                alt="Contact"
+                className="w-48 h-48 rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 flex-shrink-0 ring-4 ring-blue-500 ring-opacity-50"
+              />
+              <div className="flex-1">
+                <div className="space-y-3 mb-6">
+                  <p className="text-lg"><span className="font-semibold text-blue-500">Office:</span> 0100-285-721 / 0716-877 234</p>
+                  <p className="text-lg"><span className="font-semibold text-blue-500">Mobile:</span> 0798-244 545</p>
+                  <p className="text-lg"><span className="font-semibold text-blue-500">Email:</span> ericmutuma15@gmail.com</p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="mailto:ericmutuma15@gmail.com"
+                    className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 font-semibold text-center transform hover:scale-105"
+                  >
+                    Mail Me
+                  </a>
+                  <a
+                    href="https://wa.me/254716877234"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg hover:from-green-600 hover:to-emerald-600 transition-all duration-300 font-semibold text-center transform hover:scale-105"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>
