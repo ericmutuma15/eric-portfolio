@@ -165,9 +165,9 @@ function App() {
         <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
 
         {/* Skills Section */}
-        <section className="py-20 px-4 sm:px-10 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700 flex flex-col justify-center items-center min-h-screen" id="skills">
-          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Skills</h2>
-          <div className="max-w-7xl mx-auto w-full">
+        <section className="py-20 px-4 sm:px-10 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700" id="skills">
+          <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Skills</h2>
+          <div className="max-w-7xl mx-auto">
             <div className="relative group">
               <div 
                 className="overflow-x-auto scrollbar-hide scroll-smooth"
@@ -238,9 +238,9 @@ function App() {
         <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
 
         {/* Projects Section */}
-        <section className="py-20 px-4 sm:px-10 bg-gray-900 text-white transition-opacity duration-700 flex flex-col justify-center items-center min-h-screen" id="projects">
-          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Projects</h2>
-          <div className="max-w-7xl mx-auto w-full">
+        <section className="py-20 px-4 sm:px-10 bg-gray-900 text-white transition-opacity duration-700" id="projects">
+          <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Projects</h2>
+          <div className="max-w-7xl mx-auto">
             <div className="relative group">
               <div 
                 className="overflow-x-auto scrollbar-hide scroll-smooth"
