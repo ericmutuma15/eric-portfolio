@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaSun, FaMoon, FaShieldAlt } from 'react-icons/fa';
+import { FaShieldAlt } from 'react-icons/fa';
 import './App.css';
 import './index.css';
 
@@ -49,14 +49,12 @@ function App() {
   const [projectsScrollLeft, setProjectsScrollLeft] = useState(false);
   const [projectsScrollRight, setProjectsScrollRight] = useState(true);
 
-  // Newest skills first
   const skills = [
     { name: 'Tailwind CSS', image: tailwindImage },
     { name: 'FastAPI', image: fastapiImage },
     { name: 'Express.js', image: expressImage },
     { name: 'Cisco Networking', image: ciscoImage },
     { name: 'Penetration Testing', icon: 'shield', bgColor: 'from-red-500 to-orange-500' },
-
     { name: 'React', image: reactImage },
     { name: 'Flask', image: flaskImage },
     { name: 'Node.js', image: nodeImage },
@@ -71,24 +69,22 @@ function App() {
     { name: 'ArcGIS', image: arcgisImage },
   ];
 
-   // Projects
   const projects = [
-    { 
-      name: 'Brook Of Healing', 
-      image: brookImage, 
-      link: 'https://brookeofhealing.vercel.app/' 
+    {
+      name: 'Brook Of Healing',
+      image: brookImage,
+      link: 'https://brookeofhealing.vercel.app/'
     },
-    { 
-      name: 'British Family Hospital', 
-      image: britishHospitalImage, 
-      link: 'https://bfhosp.vercel.app/' 
+    {
+      name: 'British Family Hospital',
+      image: britishHospitalImage,
+      link: 'https://bfhosp.vercel.app/'
     },
-    { 
-      name: 'Rhyme Training Institute', 
-      image: rhymeTrainingImage, 
-      link: 'https://rhymeinstitute.vercel.app/' 
+    {
+      name: 'Rhyme Training Institute',
+      image: rhymeTrainingImage,
+      link: 'https://rhymeinstitute.vercel.app/'
     },
-
     { name: 'Dashboard', image: dashboardImage, link: 'https://public.tableau.com/app/profile/eric.mutuma/viz/GlobalTBdataAnalysis/GlobalTBprevalenceanalysis?publish=yes' },
     { name: 'Desire Link', image: desirelinkImage, link: 'https://desirelink.vercel.app' },
     { name: 'Elite', image: eliteImage, link: 'https://elitemovies15.netlify.app' },
@@ -99,36 +95,46 @@ function App() {
     { name: 'Shadow Tech', image: shadowtechImage, link: 'https://shadowtech.netlify.app' },
   ];
 
+  const sectionBase = 'scroll-mt-24 px-4 sm:px-6 lg:px-10';
+  const sectionSpacing = 'pt-10 pb-16 sm:pt-12 sm:pb-20 lg:pt-14 lg:pb-24';
+  const sectionTitle = 'text-3xl sm:text-4xl font-bold text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-8 sm:mb-10 lg:mb-12';
 
   return (
     <div className={darkMode ? 'dark' : ''} style={{ margin: 0, padding: 0 }}>
       <div className="font-sans bg-gray-100 dark:bg-gray-900 dark:text-white min-h-screen">
         {/* Home Section */}
-        <section className="bg-gray-900 text-white py-20 text-center relative">
-          <h1 className="text-4xl font-bold">Hi! I'm a Full-Stack Developer</h1>
-          <p className="mt-4 text-lg">I build smooth, full-stack web apps and create interactive dashboards.</p>
-          <p className="mt-12 mb-8 text-lg">Need a Land surveyor?</p>
-          <div className="mt-4 flex items-center justify-center">
-            <a
-              href="https://orion-geosurveys.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-lg font-bold text-blue-500 hover:text-blue-700 transition-colors flex items-center"
-            >
-              Visit Us
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-6 h-6 ml-2 transition-transform transform hover:translate-x-2"
+        <section className="relative min-h-[88vh] bg-gray-900 text-white px-4 sm:px-6 lg:px-10 py-16 sm:py-20 flex flex-col items-center justify-center text-center overflow-hidden">
+          <div className="max-w-4xl mx-auto flex flex-col items-center gap-5 sm:gap-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+              Hi! I'm a Full-Stack Developer
+            </h1>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-200 max-w-3xl">
+              I build smooth, full-stack web apps and create interactive dashboards.
+            </p>
+            <p className="pt-4 text-lg sm:text-xl font-medium text-gray-100">Need a Land surveyor?</p>
+            <div className="pt-2 flex items-center justify-center">
+              <a
+                href="https://orion-geosurveys.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg font-bold text-blue-500 hover:text-blue-700 transition-colors flex items-center"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5l6 6m0 0l-6 6m6-6H3" />
-              </svg>
-            </a>
+                Visit Us
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6 ml-2 transition-transform transform hover:translate-x-2"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5l6 6m0 0l-6 6m6-6H3" />
+                </svg>
+              </a>
+            </div>
           </div>
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
             <div className="animate-bounce">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -141,22 +147,22 @@ function App() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12.75L12 19.5l-7.5-6.75" />
               </svg>
             </div>
-            <p className="mt-2 text-sm">Scroll Down</p>
+            <p className="mt-2 text-sm tracking-wide">Scroll Down</p>
           </div>
         </section>
 
         <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
 
         {/* About Section */}
-        <section className="py-20 px-10 bg-gray-900 text-white transition-opacity duration-700" id="about">
-          <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">About Me</h2>
-          <div className="flex flex-col md:flex-row items-center gap-8 max-w-6xl mx-auto">
+        <section className={`bg-gray-900 text-white transition-opacity duration-700 ${sectionBase} ${sectionSpacing}`} id="about">
+          <h2 className={sectionTitle}>About Me</h2>
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8 lg:gap-12 max-w-6xl mx-auto">
             <img
               src={meImage}
               alt="About Me"
-              className="w-48 h-48 rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 flex-shrink-0 ring-4 ring-blue-500 ring-opacity-50"
+              className="w-44 h-44 sm:w-48 sm:h-48 rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 flex-shrink-0 ring-4 ring-blue-500 ring-opacity-50 object-cover"
             />
-            <p className="text-lg leading-relaxed text-gray-200">
+            <p className="text-base sm:text-lg leading-relaxed text-gray-200 max-w-3xl md:pt-2">
               I'm a full-stack developer, data analyst, cybersecurity enthusiast, and Linux expert. I specialize in React (Vite/Next) + Flask/FastAPI or Node.js to build smooth, scalable web applications. My expertise includes <span className="text-blue-400 font-semibold">Cisco Networking</span> and <span className="text-blue-400 font-semibold">Cybersecurity with Penetration Testing</span>, complemented by deep knowledge in Linux system setup, network configuration, and security troubleshooting. I'm passionate about building secure, efficient, and user-centric solutions.
             </p>
           </div>
@@ -165,11 +171,11 @@ function App() {
         <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
 
         {/* Skills Section */}
-        <section className="py-20 px-4 sm:px-10 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700" id="skills">
-          <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Skills</h2>
+        <section className={`bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700 ${sectionBase} ${sectionSpacing}`} id="skills">
+          <h2 className={sectionTitle}>Skills</h2>
           <div className="max-w-7xl mx-auto">
             <div className="relative group">
-              <div 
+              <div
                 className="overflow-x-auto scrollbar-hide scroll-smooth"
                 onScroll={(e) => {
                   const scrollLeft = e.target.scrollLeft > 0;
@@ -178,7 +184,7 @@ function App() {
                   setSkillsScrollRight(scrollRight);
                 }}
               >
-                <div className="flex gap-6 pb-4 px-4 min-w-max">
+                <div className="flex gap-6 pb-4 px-2 sm:px-4 min-w-max">
                   {skills.map(skill => (
                     <div key={skill.name} className="flex-shrink-0 text-center group/skill">
                       {skill.image ? (
@@ -187,21 +193,22 @@ function App() {
                           <img
                             src={skill.image}
                             alt={skill.name}
-                            className="relative mx-auto w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 object-cover rounded-full shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700"
+                            className="relative mx-auto w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-48 lg:h-48 object-cover rounded-full shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700"
                           />
                         </div>
                       ) : (
-                        <div className={`relative mb-4 mx-auto w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full bg-gradient-to-br ${skill.bgColor} shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700 flex items-center justify-center`}>
-                          <FaShieldAlt className="text-white text-6xl sm:text-7xl" />
+                        <div className={`relative mb-4 mx-auto w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-48 lg:h-48 rounded-full bg-gradient-to-br ${skill.bgColor} shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700 flex items-center justify-center`}>
+                          <FaShieldAlt className="text-white text-5xl sm:text-6xl" />
                         </div>
                       )}
-                      <p className="font-bold text-base sm:text-lg md:text-xl text-gray-900 dark:text-white group-hover/skill:text-blue-500 transition-colors duration-300 mt-2">{skill.name}</p>
+                      <p className="font-bold text-sm sm:text-base md:text-lg lg:text-xl text-gray-900 dark:text-white group-hover/skill:text-blue-500 transition-colors duration-300 mt-2">
+                        {skill.name}
+                      </p>
                     </div>
                   ))}
                 </div>
               </div>
-              
-              {/* Scroll indicators */}
+
               {skillsScrollLeft && (
                 <button
                   onClick={() => {
@@ -216,7 +223,7 @@ function App() {
                   </svg>
                 </button>
               )}
-              
+
               {skillsScrollRight && (
                 <button
                   onClick={() => {
@@ -238,11 +245,11 @@ function App() {
         <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
 
         {/* Projects Section */}
-        <section className="py-20 px-4 sm:px-10 bg-gray-900 text-white transition-opacity duration-700" id="projects">
-          <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Projects</h2>
+        <section className={`bg-gray-900 text-white transition-opacity duration-700 ${sectionBase} ${sectionSpacing}`} id="projects">
+          <h2 className={sectionTitle}>Projects</h2>
           <div className="max-w-7xl mx-auto">
             <div className="relative group">
-              <div 
+              <div
                 className="overflow-x-auto scrollbar-hide scroll-smooth"
                 onScroll={(e) => {
                   const scrollLeft = e.target.scrollLeft > 0;
@@ -251,10 +258,13 @@ function App() {
                   setProjectsScrollRight(scrollRight);
                 }}
               >
-                <div className="flex gap-6 pb-4 px-4 min-w-max">
+                <div className="flex gap-6 pb-4 px-2 sm:px-4 min-w-max">
                   {projects.map(project => (
-                    <div key={project.name} className="flex-shrink-0 w-80 sm:w-96 group/project relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-105">
-                      <div className="relative h-56 sm:h-64 overflow-hidden">
+                    <div
+                      key={project.name}
+                      className="flex-shrink-0 w-80 sm:w-96 group/project relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-[1.03]"
+                    >
+                      <div className="relative h-52 sm:h-60 overflow-hidden">
                         <img
                           src={project.image}
                           alt={project.name}
@@ -262,15 +272,19 @@ function App() {
                         />
                         <div className="absolute inset-0 bg-black opacity-0 group-hover/project:opacity-20 transition-opacity duration-300"></div>
                       </div>
-                      <div className="p-5 sm:p-6">
-                        <h3 className="font-bold text-lg sm:text-xl mb-2 group-hover/project:text-blue-400 transition-colors duration-300 line-clamp-1">{project.name}</h3>
-                        <p className="text-sm text-gray-400 mb-4 line-clamp-2">{project.name} website.</p>
+                      <div className="p-5 sm:p-6 lg:p-7">
+                        <h3 className="font-bold text-lg sm:text-xl mb-2 group-hover/project:text-blue-400 transition-colors duration-300 line-clamp-1">
+                          {project.name}
+                        </h3>
+                        <p className="text-sm text-gray-400 mb-5 line-clamp-2">
+                          {project.name} website.
+                        </p>
                         <div className="text-center">
                           <a
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-block px-5 sm:px-6 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 font-semibold text-sm sm:text-base"
+                            className="inline-block px-5 sm:px-6 py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 font-semibold text-sm sm:text-base"
                           >
                             Visit Site
                           </a>
@@ -281,7 +295,6 @@ function App() {
                 </div>
               </div>
 
-              {/* Scroll indicators */}
               {projectsScrollLeft && (
                 <button
                   onClick={() => {
@@ -296,7 +309,7 @@ function App() {
                   </svg>
                 </button>
               )}
-              
+
               {projectsScrollRight && (
                 <button
                   onClick={() => {
@@ -318,20 +331,20 @@ function App() {
         <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
 
         {/* Contact Section */}
-        <section className="py-20 px-10 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700" id="contact">
-          <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Contact</h2>
+        <section className={`bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700 ${sectionBase} ${sectionSpacing}`} id="contact">
+          <h2 className={sectionTitle}>Contact</h2>
           <div className="max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center gap-8 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 p-8 rounded-xl shadow-xl">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 lg:gap-10 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 p-6 sm:p-8 lg:p-10 rounded-2xl shadow-xl">
               <img
                 src={contactImage}
                 alt="Contact"
-                className="w-48 h-48 rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 flex-shrink-0 ring-4 ring-blue-500 ring-opacity-50"
+                className="w-44 h-44 sm:w-48 sm:h-48 rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 flex-shrink-0 ring-4 ring-blue-500 ring-opacity-50 object-cover"
               />
-              <div className="flex-1">
+              <div className="flex-1 w-full md:pt-1">
                 <div className="space-y-3 mb-6">
-                  <p className="text-lg"><span className="font-semibold text-blue-500">Office:</span> 0100-285-721 / 0716-877 234</p>
-                  <p className="text-lg"><span className="font-semibold text-blue-500">Mobile:</span> 0798-244 545</p>
-                  <p className="text-lg"><span className="font-semibold text-blue-500">Email:</span> ericmutuma15@gmail.com</p>
+                  <p className="text-base sm:text-lg"><span className="font-semibold text-blue-500">Office:</span> 0100-285-721 / 0716-877 234</p>
+                  <p className="text-base sm:text-lg"><span className="font-semibold text-blue-500">Mobile:</span> 0798-244 545</p>
+                  <p className="text-base sm:text-lg break-words"><span className="font-semibold text-blue-500">Email:</span> ericmutuma15@gmail.com</p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
@@ -355,8 +368,8 @@ function App() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-gray-900 text-white py-10 text-center">
-          <p>&copy; 2025 Eric Mutuma. All rights reserved.</p>
+        <footer className="bg-gray-900 text-white py-8 text-center px-4">
+          <p className="text-sm sm:text-base">&copy; 2025 Eric Mutuma. All rights reserved.</p>
         </footer>
       </div>
     </div>
