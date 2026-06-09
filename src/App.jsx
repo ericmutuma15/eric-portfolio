@@ -42,7 +42,7 @@ import ciscoImage from './assets/net.jpg';
 import meImage from './assets/me.jpg';
 import contactImage from './assets/contact.jpeg';
 
-//Testimonials images
+// Testimonials images
 import aliceImage from './assets/alice.png';
 import brianImage from './assets/brian.jpeg';
 import graceImage from './assets/grace.png';
@@ -78,28 +78,42 @@ function App() {
     { name: 'ArcGIS', image: arcgisImage },
   ];
 
+  // Group skills into pages of 6
+  const skillPages = [];
+  for (let i = 0; i < skills.length; i += 6) {
+    skillPages.push(skills.slice(i, i + 6));
+  }
+
   const projects = [
     {
       name: 'Brook Of Healing',
       image: brookImage,
-      link: 'https://brookeofhealing.vercel.app/'
+      link: 'https://brookeofhealing.vercel.app/',
     },
     {
       name: 'British Family Hospital',
       image: britishHospitalImage,
-      link: 'https://bfhosp.vercel.app/'
+      link: 'https://bfhosp.vercel.app/',
     },
     {
       name: 'Rhyme Training Institute',
       image: rhymeTrainingImage,
-      link: 'https://rhymeinstitute.vercel.app/'
+      link: 'https://rhymeinstitute.vercel.app/',
     },
-    { name: 'Dashboard', image: dashboardImage, link: 'https://public.tableau.com/app/profile/eric.mutuma/viz/GlobalTBdataAnalysis/GlobalTBprevalenceanalysis?publish=yes' },
+    {
+      name: 'Dashboard',
+      image: dashboardImage,
+      link: 'https://public.tableau.com/app/profile/eric.mutuma/viz/GlobalTBdataAnalysis/GlobalTBprevalenceanalysis?publish=yes',
+    },
     { name: 'Desire Link', image: desirelinkImage, link: 'https://desirelink.vercel.app' },
     { name: 'Elite', image: eliteImage, link: 'https://elitemovies15.netlify.app' },
     { name: 'Food Court', image: foodcourtImage, link: 'https://food-court-g4.onrender.com' },
     { name: 'Joscar', image: joscarImage, link: 'https://joscargrill.netlify.app' },
-    { name: 'MTN', image: mtnImage, link: 'https://github.com/ericmutuma15/MTN-Cote-D-Ivore-data-analysis/blob/main/Moringa_Data_Science_Prep_Python_Mini_Project_2012_07_Eric_Mutuma_DataReport_.ipynb' },
+    {
+      name: 'MTN',
+      image: mtnImage,
+      link: 'https://github.com/ericmutuma15/MTN-Cote-D-Ivore-data-analysis/blob/main/Moringa_Data_Science_Prep_Python_Mini_Project_2012_07_Eric_Mutuma_DataReport_.ipynb',
+    },
     { name: 'Orion', image: orionImage, link: 'https://orion-geosurveys.vercel.app/' },
     { name: 'Shadow Tech', image: shadowtechImage, link: 'https://shadowtech.netlify.app' },
   ];
@@ -109,43 +123,47 @@ function App() {
       name: 'Alicia Mwangi',
       image: aliceImage,
       role: 'Client Feedback',
-      text: 'Delivered a clean, responsive solution with great attention to detail and smooth user experience.'
+      text: 'Delivered a clean, responsive solution with great attention to detail and smooth user experience.',
     },
     {
       name: 'Brian Otieno',
       image: brianImage,
       role: 'Project Partner',
-      text: 'Very reliable, fast to iterate, and excellent at turning ideas into polished web interfaces.'
+      text: 'Very reliable, fast to iterate, and excellent at turning ideas into polished web interfaces.',
     },
     {
       name: 'Grace Wanjiku',
       image: graceImage,
       role: 'Satisfied User',
-      text: 'The final result was professional, modern, and worked beautifully across different screen sizes.'
+      text: 'The final result was professional, modern, and worked beautifully across different screen sizes.',
     },
     {
       name: 'Daniel Kiptoo',
       image: danielImage,
       role: 'Team Member',
-      text: 'Strong technical skills and a great sense of design made the whole process efficient and enjoyable.'
+      text: 'Strong technical skills and a great sense of design made the whole process efficient and enjoyable.',
     },
     {
       name: 'Naomi Achieng',
       image: naomiImage,
       role: 'Reviewer',
-      text: 'Great communication, smooth delivery, and a thoughtful approach to building useful digital products.'
+      text: 'Great communication, smooth delivery, and a thoughtful approach to building useful digital products.',
     },
   ];
 
   const sectionBase = 'scroll-mt-24 px-3 sm:px-6 lg:px-10';
   const sectionSpacing = 'pt-10 pb-14 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20';
-  const skillsSectionSpacing = 'pt-4 pb-8 sm:pt-8 sm:pb-10 lg:pt-10 lg:pb-12 min-h-[40vh] sm:min-h-[54vh] lg:min-h-[62vh] flex flex-col';
-  const projectsSectionSpacing = 'pt-4 pb-8 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14 min-h-[44vh] sm:min-h-[58vh] lg:min-h-[68vh] flex flex-col';
-  const testimonialsSectionSpacing = 'pt-4 pb-8 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14 min-h-[44vh] sm:min-h-[58vh] lg:min-h-[66vh] flex flex-col';
+  const skillsSectionSpacing =
+    'pt-4 pb-8 sm:pt-8 sm:pb-10 lg:pt-10 lg:pb-12 min-h-[40vh] sm:min-h-[54vh] lg:min-h-[62vh] flex flex-col';
+  const projectsSectionSpacing =
+    'pt-4 pb-8 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14 min-h-[44vh] sm:min-h-[58vh] lg:min-h-[68vh] flex flex-col';
+  const testimonialsSectionSpacing =
+    'pt-4 pb-8 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14 min-h-[44vh] sm:min-h-[58vh] lg:min-h-[66vh] flex flex-col';
   const skillsContentSpacing = 'mt-6 sm:mt-8 lg:mt-10';
   const projectsContentSpacing = 'mt-6 sm:mt-8 lg:mt-10';
   const testimonialsContentSpacing = 'mt-6 sm:mt-8 lg:mt-10';
-  const sectionTitle = 'text-3xl sm:text-4xl font-bold text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-4 sm:mb-8 lg:mb-10';
+  const sectionTitle =
+    'text-3xl sm:text-4xl font-bold text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-4 sm:mb-8 lg:mb-10';
 
   return (
     <div className={darkMode ? 'dark' : ''} style={{ margin: 0, padding: 0 }}>
@@ -159,7 +177,9 @@ function App() {
             <p className="text-base sm:text-lg lg:text-xl text-gray-200 max-w-3xl">
               I build smooth, full-stack web apps and create interactive dashboards.
             </p>
-            <p className="pt-2 sm:pt-4 text-lg sm:text-xl font-medium text-gray-100">Need a Land surveyor?</p>
+            <p className="pt-2 sm:pt-4 text-lg sm:text-xl font-medium text-gray-100">
+              Need a Land surveyor?
+            </p>
             <div className="pt-1 sm:pt-2 flex items-center justify-center">
               <a
                 href="https://orion-geosurveys.vercel.app/"
@@ -220,37 +240,58 @@ function App() {
           id="skills"
         >
           <h2 className={sectionTitle}>Skills</h2>
+
           <div className={`max-w-7xl mx-auto w-full ${skillsContentSpacing}`}>
             <div className="relative group">
               <div
-                className="overflow-x-auto scrollbar-hide scroll-smooth"
+                className="overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
                 onScroll={(e) => {
                   const scrollLeft = e.target.scrollLeft > 0;
-                  const scrollRight = e.target.scrollLeft < (e.target.scrollWidth - e.target.clientWidth - 10);
+                  const scrollRight =
+                    e.target.scrollLeft < e.target.scrollWidth - e.target.clientWidth - 10;
+
                   setSkillsScrollLeft(scrollLeft);
                   setSkillsScrollRight(scrollRight);
                 }}
               >
-                <div className="flex gap-2 sm:gap-4 pb-1 sm:pb-2 px-1 sm:px-4 min-w-max">
-                  {skills.map(skill => (
-                    <div key={skill.name} className="flex-shrink-0 text-center group/skill w-[6.5rem] sm:w-auto">
-                      {skill.image ? (
-                        <div className="relative mb-2 sm:mb-3">
-                          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur opacity-0 group-hover/skill:opacity-75 transition-opacity duration-300"></div>
-                          <img
-                            src={skill.image}
-                            alt={skill.name}
-                            className="relative mx-auto w-16 h-16 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-48 lg:h-48 object-cover rounded-full shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700"
-                          />
-                        </div>
-                      ) : (
-                        <div className={`relative mb-2 sm:mb-3 mx-auto w-16 h-16 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-48 lg:h-48 rounded-full bg-gradient-to-br ${skill.bgColor} shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700 flex items-center justify-center`}>
-                          <FaShieldAlt className="text-white text-2xl sm:text-6xl" />
-                        </div>
-                      )}
-                      <p className="font-bold text-[10px] sm:text-base md:text-lg lg:text-xl text-gray-900 dark:text-white group-hover/skill:text-blue-500 transition-colors duration-300 mt-1 leading-tight">
-                        {skill.name}
-                      </p>
+                <div className="flex gap-4 sm:gap-6 pb-2 px-1 sm:px-4">
+                  {skillPages.map((page, pageIndex) => (
+                    <div key={pageIndex} className="flex-shrink-0 w-full min-w-full snap-start">
+                      <div
+                        className="grid gap-3 sm:gap-6 place-items-center"
+                        style={{
+                          gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+                          gridTemplateRows: 'repeat(2, auto)',
+                        }}
+                      >
+                        {page.map((skill) => (
+                          <div
+                            key={skill.name}
+                            className="min-w-0 flex flex-col items-center text-center group/skill w-full"
+                          >
+                            {skill.image ? (
+                              <div className="relative mb-2 sm:mb-3">
+                                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur opacity-0 group-hover/skill:opacity-75 transition-opacity duration-300"></div>
+                                <img
+                                  src={skill.image}
+                                  alt={skill.name}
+                                  className="relative mx-auto w-14 h-14 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-cover rounded-full shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700"
+                                />
+                              </div>
+                            ) : (
+                              <div
+                                className={`relative mb-2 sm:mb-3 mx-auto w-14 h-14 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br ${skill.bgColor} shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700 flex items-center justify-center`}
+                              >
+                                <FaShieldAlt className="text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl" />
+                              </div>
+                            )}
+
+                            <p className="font-bold text-[9px] sm:text-sm md:text-base lg:text-lg text-gray-900 dark:text-white group-hover/skill:text-blue-500 transition-colors duration-300 leading-tight">
+                              {skill.name}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -260,7 +301,7 @@ function App() {
                 <button
                   onClick={() => {
                     const carousel = document.querySelector('#skills .overflow-x-auto');
-                    if (carousel) carousel.scrollBy({ left: -300, behavior: 'smooth' });
+                    if (carousel) carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
                   }}
                   className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300"
                   aria-label="Scroll left"
@@ -275,7 +316,7 @@ function App() {
                 <button
                   onClick={() => {
                     const carousel = document.querySelector('#skills .overflow-x-auto');
-                    if (carousel) carousel.scrollBy({ left: 300, behavior: 'smooth' });
+                    if (carousel) carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
                   }}
                   className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300"
                   aria-label="Scroll right"
@@ -301,13 +342,14 @@ function App() {
                 className="overflow-x-auto scrollbar-hide scroll-smooth"
                 onScroll={(e) => {
                   const scrollLeft = e.target.scrollLeft > 0;
-                  const scrollRight = e.target.scrollLeft < (e.target.scrollWidth - e.target.clientWidth - 10);
+                  const scrollRight =
+                    e.target.scrollLeft < e.target.scrollWidth - e.target.clientWidth - 10;
                   setProjectsScrollLeft(scrollLeft);
                   setProjectsScrollRight(scrollRight);
                 }}
               >
                 <div className="flex gap-4 sm:gap-6 pb-4 px-1 sm:px-4 min-w-max">
-                  {projects.map(project => (
+                  {projects.map((project) => (
                     <div
                       key={project.name}
                       className="flex-shrink-0 w-[13rem] sm:w-80 lg:w-96 group/project relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-[1.03]"
@@ -388,7 +430,8 @@ function App() {
                 className="overflow-x-auto scrollbar-hide scroll-smooth"
                 onScroll={(e) => {
                   const scrollLeft = e.target.scrollLeft > 0;
-                  const scrollRight = e.target.scrollLeft < (e.target.scrollWidth - e.target.clientWidth - 10);
+                  const scrollRight =
+                    e.target.scrollLeft < e.target.scrollWidth - e.target.clientWidth - 10;
                   setTestimonialsScrollLeft(scrollLeft);
                   setTestimonialsScrollRight(scrollRight);
                 }}
@@ -470,9 +513,15 @@ function App() {
               />
               <div className="flex-1 w-full md:pt-1 text-center md:text-left">
                 <div className="space-y-2 sm:space-y-3 mb-5 sm:mb-6">
-                  <p className="text-base sm:text-lg"><span className="font-semibold text-blue-500">Office:</span> 0100-285-721 / 0716-877 234</p>
-                  <p className="text-base sm:text-lg"><span className="font-semibold text-blue-500">Mobile:</span> 0798-244 545</p>
-                  <p className="text-base sm:text-lg break-words"><span className="font-semibold text-blue-500">Email:</span> ericmutuma15@gmail.com</p>
+                  <p className="text-base sm:text-lg">
+                    <span className="font-semibold text-blue-500">Office:</span> 0100-285-721 / 0716-877 234
+                  </p>
+                  <p className="text-base sm:text-lg">
+                    <span className="font-semibold text-blue-500">Mobile:</span> 0798-244 545
+                  </p>
+                  <p className="text-base sm:text-lg break-words">
+                    <span className="font-semibold text-blue-500">Email:</span> ericmutuma15@gmail.com
+                  </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
                   <a
