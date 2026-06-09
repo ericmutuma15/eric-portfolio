@@ -42,12 +42,21 @@ import ciscoImage from './assets/net.jpg';
 import meImage from './assets/me.jpg';
 import contactImage from './assets/contact.jpeg';
 
+//Testimonials images
+import aliceImage from './assets/alice.png';
+import brianImage from './assets/brian.jpeg';
+import graceImage from './assets/grace.png';
+import danielImage from './assets/kiptoo.png';
+import naomiImage from './assets/achieng.jpeg';
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [skillsScrollLeft, setSkillsScrollLeft] = useState(false);
   const [skillsScrollRight, setSkillsScrollRight] = useState(true);
   const [projectsScrollLeft, setProjectsScrollLeft] = useState(false);
   const [projectsScrollRight, setProjectsScrollRight] = useState(true);
+  const [testimonialsScrollLeft, setTestimonialsScrollLeft] = useState(false);
+  const [testimonialsScrollRight, setTestimonialsScrollRight] = useState(true);
 
   const skills = [
     { name: 'Tailwind CSS', image: tailwindImage },
@@ -95,11 +104,48 @@ function App() {
     { name: 'Shadow Tech', image: shadowtechImage, link: 'https://shadowtech.netlify.app' },
   ];
 
+  const testimonials = [
+    {
+      name: 'Alicia Mwangi',
+      image: aliceImage,
+      role: 'Client Feedback',
+      text: 'Delivered a clean, responsive solution with great attention to detail and smooth user experience.'
+    },
+    {
+      name: 'Brian Otieno',
+      image: brianImage,
+      role: 'Project Partner',
+      text: 'Very reliable, fast to iterate, and excellent at turning ideas into polished web interfaces.'
+    },
+    {
+      name: 'Grace Wanjiku',
+      image: graceImage,
+      role: 'Satisfied User',
+      text: 'The final result was professional, modern, and worked beautifully across different screen sizes.'
+    },
+    {
+      name: 'Daniel Kiptoo',
+      image: danielImage,
+      role: 'Team Member',
+      text: 'Strong technical skills and a great sense of design made the whole process efficient and enjoyable.'
+    },
+    {
+      name: 'Naomi Achieng',
+      image: naomiImage,
+      role: 'Reviewer',
+      text: 'Great communication, smooth delivery, and a thoughtful approach to building useful digital products.'
+    },
+  ];
+
   const sectionBase = 'scroll-mt-24 px-3 sm:px-6 lg:px-10';
-  const sectionSpacing = 'pt-8 pb-12 sm:pt-12 sm:pb-20 lg:pt-14 lg:pb-24';
-  const skillsSectionSpacing = 'pt-8 pb-4 sm:pt-12 sm:pb-8 lg:pt-14 lg:pb-10';
-  const skillsContentSpacing = 'mt-8 sm:mt-10 lg:mt-12';
-  const sectionTitle = 'text-3xl sm:text-4xl font-bold text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-6 sm:mb-10 lg:mb-12';
+  const sectionSpacing = 'pt-10 pb-14 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20';
+  const skillsSectionSpacing = 'pt-4 pb-8 sm:pt-8 sm:pb-10 lg:pt-10 lg:pb-12 min-h-[40vh] sm:min-h-[54vh] lg:min-h-[62vh] flex flex-col';
+  const projectsSectionSpacing = 'pt-4 pb-8 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14 min-h-[44vh] sm:min-h-[58vh] lg:min-h-[68vh] flex flex-col';
+  const testimonialsSectionSpacing = 'pt-4 pb-8 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14 min-h-[44vh] sm:min-h-[58vh] lg:min-h-[66vh] flex flex-col';
+  const skillsContentSpacing = 'mt-6 sm:mt-8 lg:mt-10';
+  const projectsContentSpacing = 'mt-6 sm:mt-8 lg:mt-10';
+  const testimonialsContentSpacing = 'mt-6 sm:mt-8 lg:mt-10';
+  const sectionTitle = 'text-3xl sm:text-4xl font-bold text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-4 sm:mb-8 lg:mb-10';
 
   return (
     <div className={darkMode ? 'dark' : ''} style={{ margin: 0, padding: 0 }}>
@@ -153,8 +199,6 @@ function App() {
           </div>
         </section>
 
-        <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
-
         {/* About Section */}
         <section className={`bg-gray-900 text-white transition-opacity duration-700 ${sectionBase} ${sectionSpacing}`} id="about">
           <h2 className={sectionTitle}>About Me</h2>
@@ -170,13 +214,14 @@ function App() {
           </div>
         </section>
 
-        <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
-
         {/* Skills Section */}
-        <section className={`bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700 ${sectionBase} ${skillsSectionSpacing} flex flex-col`} id="skills">
+        <section
+          className={`bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700 ${sectionBase} ${skillsSectionSpacing}`}
+          id="skills"
+        >
           <h2 className={sectionTitle}>Skills</h2>
-          <div className="max-w-7xl mx-auto w-full flex-1 flex items-center">
-            <div className="relative group w-full">
+          <div className={`max-w-7xl mx-auto w-full ${skillsContentSpacing}`}>
+            <div className="relative group">
               <div
                 className="overflow-x-auto scrollbar-hide scroll-smooth"
                 onScroll={(e) => {
@@ -186,24 +231,24 @@ function App() {
                   setSkillsScrollRight(scrollRight);
                 }}
               >
-                <div className={`flex gap-4 sm:gap-6 pb-1 sm:pb-2 px-1 sm:px-4 min-w-max ${skillsContentSpacing}`}>
+                <div className="flex gap-2 sm:gap-4 pb-1 sm:pb-2 px-1 sm:px-4 min-w-max">
                   {skills.map(skill => (
-                    <div key={skill.name} className="flex-shrink-0 text-center group/skill w-[9rem] sm:w-auto">
+                    <div key={skill.name} className="flex-shrink-0 text-center group/skill w-[6.5rem] sm:w-auto">
                       {skill.image ? (
-                        <div className="relative mb-3 sm:mb-4">
+                        <div className="relative mb-2 sm:mb-3">
                           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur opacity-0 group-hover/skill:opacity-75 transition-opacity duration-300"></div>
                           <img
                             src={skill.image}
                             alt={skill.name}
-                            className="relative mx-auto w-28 h-28 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-48 lg:h-48 object-cover rounded-full shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700"
+                            className="relative mx-auto w-16 h-16 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-48 lg:h-48 object-cover rounded-full shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700"
                           />
                         </div>
                       ) : (
-                        <div className={`relative mb-3 sm:mb-4 mx-auto w-28 h-28 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-48 lg:h-48 rounded-full bg-gradient-to-br ${skill.bgColor} shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700 flex items-center justify-center`}>
-                          <FaShieldAlt className="text-white text-4xl sm:text-6xl" />
+                        <div className={`relative mb-2 sm:mb-3 mx-auto w-16 h-16 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-48 lg:h-48 rounded-full bg-gradient-to-br ${skill.bgColor} shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 ring-4 ring-gray-200 dark:ring-gray-700 flex items-center justify-center`}>
+                          <FaShieldAlt className="text-white text-2xl sm:text-6xl" />
                         </div>
                       )}
-                      <p className="font-bold text-xs sm:text-base md:text-lg lg:text-xl text-gray-900 dark:text-white group-hover/skill:text-blue-500 transition-colors duration-300 mt-2 leading-tight">
+                      <p className="font-bold text-[10px] sm:text-base md:text-lg lg:text-xl text-gray-900 dark:text-white group-hover/skill:text-blue-500 transition-colors duration-300 mt-1 leading-tight">
                         {skill.name}
                       </p>
                     </div>
@@ -244,12 +289,13 @@ function App() {
           </div>
         </section>
 
-        <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
-
         {/* Projects Section */}
-        <section className={`bg-gray-900 text-white transition-opacity duration-700 ${sectionBase} ${sectionSpacing}`} id="projects">
+        <section
+          className={`bg-gray-900 text-white transition-opacity duration-700 ${sectionBase} ${projectsSectionSpacing}`}
+          id="projects"
+        >
           <h2 className={sectionTitle}>Projects</h2>
-          <div className="max-w-7xl mx-auto w-full">
+          <div className={`max-w-7xl mx-auto w-full ${projectsContentSpacing}`}>
             <div className="relative group">
               <div
                 className="overflow-x-auto scrollbar-hide scroll-smooth"
@@ -264,7 +310,7 @@ function App() {
                   {projects.map(project => (
                     <div
                       key={project.name}
-                      className="flex-shrink-0 w-[15rem] sm:w-96 group/project relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-[1.03]"
+                      className="flex-shrink-0 w-[13rem] sm:w-80 lg:w-96 group/project relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-[1.03]"
                     >
                       <div className="relative aspect-[16/10] overflow-hidden">
                         <img
@@ -274,7 +320,7 @@ function App() {
                         />
                         <div className="absolute inset-0 bg-black opacity-0 group-hover/project:opacity-20 transition-opacity duration-300"></div>
                       </div>
-                      <div className="p-4 sm:p-6 lg:p-7 flex flex-col gap-2">
+                      <div className="p-4 sm:p-5 lg:p-6 flex flex-col gap-2">
                         <h3 className="font-bold text-lg sm:text-xl mb-1 group-hover/project:text-blue-400 transition-colors duration-300 line-clamp-1">
                           {project.name}
                         </h3>
@@ -330,7 +376,87 @@ function App() {
           </div>
         </section>
 
-        <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700"></div>
+        {/* Testimonials Section */}
+        <section
+          className={`bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700 ${sectionBase} ${testimonialsSectionSpacing}`}
+          id="testimonials"
+        >
+          <h2 className={sectionTitle}>Testimonials</h2>
+          <div className={`max-w-7xl mx-auto w-full ${testimonialsContentSpacing}`}>
+            <div className="relative group">
+              <div
+                className="overflow-x-auto scrollbar-hide scroll-smooth"
+                onScroll={(e) => {
+                  const scrollLeft = e.target.scrollLeft > 0;
+                  const scrollRight = e.target.scrollLeft < (e.target.scrollWidth - e.target.clientWidth - 10);
+                  setTestimonialsScrollLeft(scrollLeft);
+                  setTestimonialsScrollRight(scrollRight);
+                }}
+              >
+                <div className="flex gap-4 sm:gap-6 pb-4 px-1 sm:px-4 min-w-max">
+                  {testimonials.map((item) => (
+                    <div
+                      key={item.name}
+                      className="flex-shrink-0 w-[16rem] sm:w-80 lg:w-96 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-[1.03] border border-gray-200/70 dark:border-gray-700/70"
+                    >
+                      <div className="p-5 sm:p-6 lg:p-7 flex flex-col items-center text-center h-full">
+                        <div className="relative mb-4">
+                          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur opacity-20"></div>
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover ring-4 ring-white dark:ring-gray-800 shadow-lg"
+                          />
+                        </div>
+
+                        <h3 className="font-bold text-lg sm:text-xl text-gray-900 dark:text-white">
+                          {item.name}
+                        </h3>
+                        <p className="text-sm text-blue-500 font-medium mt-1">
+                          {item.role}
+                        </p>
+
+                        <p className="mt-4 text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-300">
+                          {item.text}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {testimonialsScrollLeft && (
+                <button
+                  onClick={() => {
+                    const carousel = document.querySelector('#testimonials .overflow-x-auto');
+                    if (carousel) carousel.scrollBy({ left: -400, behavior: 'smooth' });
+                  }}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300"
+                  aria-label="Scroll testimonials left"
+                >
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+              )}
+
+              {testimonialsScrollRight && (
+                <button
+                  onClick={() => {
+                    const carousel = document.querySelector('#testimonials .overflow-x-auto');
+                    if (carousel) carousel.scrollBy({ left: 400, behavior: 'smooth' });
+                  }}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300"
+                  aria-label="Scroll testimonials right"
+                >
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              )}
+            </div>
+          </div>
+        </section>
 
         {/* Contact Section */}
         <section className={`bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-opacity duration-700 ${sectionBase} ${sectionSpacing}`} id="contact">
@@ -356,7 +482,7 @@ function App() {
                     Mail Me
                   </a>
                   <a
-                    href="https://wa.me/254716877234"
+                    href="https://wa.me/254798244545"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg hover:from-green-600 hover:to-emerald-600 transition-all duration-300 font-semibold text-center transform hover:scale-105"
