@@ -46,7 +46,7 @@ import eliteImage from "./assets/elite.png";
 import brookImage from "./assets/Designer.png";
 import britishHospitalImage from "./assets/bfhlogo.png";
 import rhymeTrainingImage from "./assets/rhymelogo.png";
-import mbogiLinkImage from "./assets/Designer(1).png";
+import mbogiLinkImage from "./assets/Designer.png";
 
 // New skill images
 import tailwindImage from "./assets/tail.png";
