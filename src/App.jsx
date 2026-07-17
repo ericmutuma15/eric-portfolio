@@ -106,26 +106,43 @@ function App() {
       link: "https://desire-link-app.vercel.app",
     },
     {
+      name: "Orion",
+      description:
+        "A geospatial survey platform for accessing surveying solutions.",
+      image: orionImage,
+      link: "https://orion-geosurveys.vercel.app/",
+    },
+    {
+      name: "Joscar",
+      description: "A platform for ordering food online from Joscar Grill.",
+      image: joscarImage,
+      link: "https://joscar.vercel.app",
+    },
+    {
       name: "Brook Of Healing",
-      description: "A community based organisation platform for providing medical services and social support.",
+      description:
+        "A community based organisation platform for providing medical services and social support.",
       image: brookImage,
       link: "https://brookeofhealing.vercel.app/",
     },
     {
       name: "British Family Hospital",
-      description: "A healthcare platform for providing medical services and support.",
+      description:
+        "A healthcare platform for providing medical services and support.",
       image: britishHospitalImage,
       link: "https://bfhosp.vercel.app/",
     },
     {
       name: "Rhyme Training Institute",
-      description: "A platform for providing technical, medical and computer training services.",
+      description:
+        "A platform for providing technical, medical and computer training services.",
       image: rhymeTrainingImage,
       link: "https://rhymeinstitute.vercel.app/",
     },
     {
       name: "Dashboard",
-      description: "A data visualization dashboard for analyzing global TB prevalence.",
+      description:
+        "A data visualization dashboard for analyzing global TB prevalence.",
       image: dashboardImage,
       link: "https://public.tableau.com/app/profile/eric.mutuma/viz/GlobalTBdataAnalysis/GlobalTBprevalenceanalysis?publish=yes",
     },
@@ -137,13 +154,15 @@ function App() {
     },
     {
       name: "Elite",
-      description: "A platform for showcasing elite movies and entertainment content.",
+      description:
+        "A platform for showcasing elite movies and entertainment content.",
       image: eliteImage,
       link: "https://elitemovies15.netlify.app",
     },
     {
       name: "Food Court",
-      description: "A platform for ordering food online from various restaurants.",
+      description:
+        "A platform for ordering food online from various restaurants.",
       image: foodcourtImage,
       link: "https://food-court-g4.onrender.com",
     },
@@ -160,14 +179,9 @@ function App() {
       link: "https://github.com/ericmutuma15/MTN-Cote-D-Ivore-data-analysis/blob/main/Moringa_Data_Science_Prep_Python_Mini_Project_2012_07_Eric_Mutuma_DataReport_.ipynb",
     },
     {
-      name: "Orion",
-      description: "A geospatial survey platform for accessing surveying solutions.",
-      image: orionImage,
-      link: "https://orion-geosurveys.vercel.app/",
-    },
-    {
       name: "Shadow Tech",
-      description: "A portfolio for showcasing tech skills, services and solutions.",
+      description:
+        "A portfolio for showcasing tech skills, services and solutions.",
       image: shadowtechImage,
       link: "https://shadowtech.netlify.app",
     },
