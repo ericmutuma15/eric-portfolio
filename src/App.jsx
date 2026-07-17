@@ -39,14 +39,15 @@ import orionImage from "./assets/orion.jpeg";
 import shadowtechImage from "./assets/shadowtech.gif";
 import dashboardImage from "./assets/dashboard.png";
 import joscarImage from "./assets/joscar.gif";
+import joscarImage2 from "./assets/Designer.png";
 import mtnImage from "./assets/mtn.png";
 import eliteImage from "./assets/elite.png";
 
 // New project images
-import brookImage from "./assets/Designer.png";
+import brookImage from "./assets/Designerb.png";
 import britishHospitalImage from "./assets/bfhlogo.png";
 import rhymeTrainingImage from "./assets/rhymelogo.png";
-import mbogiLinkImage from "./assets/Designer.png";
+import mbogiLinkImage from "./assets/Designer(1).png";
 
 // New skill images
 import tailwindImage from "./assets/tail.png";
@@ -115,7 +116,7 @@ function App() {
     {
       name: "Joscar",
       description: "A platform for ordering food online from Joscar Grill.",
-      image: joscarImage,
+      image: joscarImage2,
       link: "https://joscar.vercel.app",
     },
     {
